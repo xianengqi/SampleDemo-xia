@@ -70,16 +70,20 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    TestView *view = [[TestView alloc] init];
-    view.backgroundColor = [UIColor redColor];
-    view.frame = CGRectMake(100, 100, 100, 100);
-    [self.view addSubview: view];
+    UITableView *tableView = [[UITableView alloc] initWithFrame: self.view.bounds];
     
+    [self.view addSubview:tableView];
     
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(pushController)];
-    
-    [view addGestureRecognizer: tapGesture];
+//    TestView *view = [[TestView alloc] init];
+//    view.backgroundColor = [UIColor redColor];
+//    view.frame = CGRectMake(100, 100, 100, 100);
+//    [self.view addSubview: view];
+//
+//
+//
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(pushController)];
+//
+//    [view addGestureRecognizer: tapGesture];
     
 }
 
