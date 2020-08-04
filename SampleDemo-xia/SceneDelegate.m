@@ -7,6 +7,7 @@
 //
 
 #import "SceneDelegate.h"
+#import "ViewController.h"
 
 @interface SceneDelegate ()
 
@@ -26,18 +27,35 @@
     // 1、处理 App 生命周期
     // 2、新的 Scene Session 生命周期
     // 那UI的生命周期交给新增的Scene Delegate处理
-
+    
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
     self.window.frame = windowScene.coordinateSpace.bounds;
     
+//    self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
     
-    UIViewController *controller1 = [[UIViewController alloc] init];
-    controller1.view.backgroundColor = [UIColor redColor];
-    controller1.tabBarItem.title = @"新闻";
-    controller1.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
-    controller1.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
+    ViewController *viewController = [[ViewController alloc] init];
+    
+    
+    
+//    viewController.navigationItem.title = @"";
+    
+    
+    
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    
+//    UIViewController *controller1 = [[UIViewController alloc] init];
+    
+//    controller1.view.backgroundColor = [UIColor redColor];
+    navigationController.tabBarItem.title = @"新闻";
+    navigationController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
+    navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
     UIViewController *controller2 = [[UIViewController alloc] init];
     controller2.view.backgroundColor = [UIColor greenColor];
@@ -57,7 +75,7 @@
     controller4.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
     
-    [tabbarController setViewControllers:@[controller1, controller2, controller3, controller4]];
+    [tabbarController setViewControllers:@[navigationController, controller2, controller3, controller4]];
     
     self.window.rootViewController = tabbarController;
     [self.window makeKeyAndVisible];
