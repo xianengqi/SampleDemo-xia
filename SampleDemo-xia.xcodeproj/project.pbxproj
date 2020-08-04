@@ -14,6 +14,7 @@
 		C3E016FE24D9C0DA00CED87B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E016FD24D9C0DA00CED87B /* Assets.xcassets */; };
 		C3E0170124D9C0DA00CED87B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E016FF24D9C0DA00CED87B /* LaunchScreen.storyboard */; };
 		C3E0170424D9C0DA00CED87B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E0170324D9C0DA00CED87B /* main.m */; };
+		C3E0170D24D9CDAF00CED87B /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3E0170C24D9CDAF00CED87B /* icon.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		C3E0170024D9C0DA00CED87B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3E0170224D9C0DA00CED87B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3E0170324D9C0DA00CED87B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3E0170C24D9CDAF00CED87B /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		C3E016F024D9C0D800CED87B /* SampleDemo-xia */ = {
 			isa = PBXGroup;
 			children = (
+				C3E0170C24D9CDAF00CED87B /* icon.bundle */,
 				C3E016F124D9C0D800CED87B /* AppDelegate.h */,
 				C3E016F224D9C0D800CED87B /* AppDelegate.m */,
 				C3E016F424D9C0D800CED87B /* SceneDelegate.h */,
@@ -133,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E0170D24D9CDAF00CED87B /* icon.bundle in Resources */,
 				C3E0170124D9C0DA00CED87B /* LaunchScreen.storyboard in Resources */,
 				C3E016FE24D9C0DA00CED87B /* Assets.xcassets in Resources */,
 				C3E016FC24D9C0D800CED87B /* Main.storyboard in Resources */,
