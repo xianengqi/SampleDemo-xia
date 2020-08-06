@@ -37,7 +37,7 @@
 @end
 
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -71,7 +71,8 @@
     
     
     UITableView *tableView = [[UITableView alloc] initWithFrame: self.view.bounds];
-    
+    tableView.dataSource = self;
+    tableView.delegate = self;
     [self.view addSubview:tableView];
     
 //    TestView *view = [[TestView alloc] init];
@@ -86,6 +87,40 @@
 //    [view addGestureRecognizer: tapGesture];
     
 }
+
+// 实现一个高度cell
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
+// 点击cell触发的事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIViewController *controller = [[UIViewController alloc] init];
+    controller.view.backgroundColor = [UIColor whiteColor];
+    controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    // `dequeueReusableCellWithIdentifier`是系统的回收池，用来取cell
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+    if (!cell) {
+      cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat: @"主标题 - %@", @(indexPath.row)];
+    cell.detailTextLabel.text = @"副标题";
+    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
+    return cell;
+}
+
 
 - (void)pushController{
     UIViewController *viewController = [[UIViewController alloc] init];
