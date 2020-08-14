@@ -8,6 +8,7 @@
 
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import "GTVideoViewController.h"
 
 @interface SceneDelegate ()
 
@@ -47,11 +48,9 @@
     viewController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
     viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
-    UIViewController *controller2 = [[UIViewController alloc] init];
-    controller2.view.backgroundColor = [UIColor greenColor];
-    controller2.tabBarItem.title = @"视频";
-    controller2.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
-    controller2.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/video_selected@2x.png"];
+    GTVideoViewController *videoController = [[GTVideoViewController alloc] init];
+//  把逻辑抽离到各自的组件里，抽离到了`GTVideoViewController.m`这个文件
+    
     
     UIViewController *controller3 = [[UIViewController alloc] init];
     controller3.view.backgroundColor = [UIColor yellowColor];
@@ -65,7 +64,7 @@
     controller4.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
     
-    [tabbarController setViewControllers:@[viewController, controller2, controller3, controller4]];
+    [tabbarController setViewControllers:@[viewController, videoController, controller3, controller4]];
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
     
