@@ -30,6 +30,13 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // 0. 注册一个layout
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    // 设置一个最基础的瀑布流样式
+    // `minimumLineSpacing和minimumInteritemSpacing`是两个元素间隙的大小
+    flowLayout.minimumLineSpacing = 10;
+    flowLayout.minimumInteritemSpacing = 10;
+    // 整个屏幕的宽度减去中间预留的10
+    flowLayout.itemSize = CGSizeMake((self.view.frame.size.width - 10)/2, 300);
+    
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     
@@ -46,7 +53,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     // 需要展示多少条
-    return 200;
+    return 20;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -54,6 +61,16 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor redColor];
     return cell;
+}
+
+// 自定义设置流式布局
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    // `% 3`表示 以3为整数的
+    if (indexPath.item % 3 == 0) {
+        return CGSizeMake(self.view.frame.size.width, 100);
+    } else {
+        return CGSizeMake((self.view.frame.size.width - 10)/2, 300);
+    }
 }
 
 @end
