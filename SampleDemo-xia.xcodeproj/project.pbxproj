@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3553F7624E8668A00FF7BF6 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3553F7524E8668A00FF7BF6 /* GTRecommendViewController.m */; };
 		C38A285324E6E8E000457644 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A285224E6E8E000457644 /* GTVideoViewController.m */; };
 		C3E016F324D9C0D800CED87B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E016F224D9C0D800CED87B /* AppDelegate.m */; };
 		C3E016F624D9C0D800CED87B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E016F524D9C0D800CED87B /* SceneDelegate.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C3553F7424E8668A00FF7BF6 /* GTRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendViewController.h; sourceTree = "<group>"; };
+		C3553F7524E8668A00FF7BF6 /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
 		C38A285124E6E8E000457644 /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
 		C38A285224E6E8E000457644 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 		C3E016EE24D9C0D800CED87B /* SampleDemo-xia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleDemo-xia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +83,8 @@
 				C3E0170324D9C0DA00CED87B /* main.m */,
 				C38A285124E6E8E000457644 /* GTVideoViewController.h */,
 				C38A285224E6E8E000457644 /* GTVideoViewController.m */,
+				C3553F7424E8668A00FF7BF6 /* GTRecommendViewController.h */,
+				C3553F7524E8668A00FF7BF6 /* GTRecommendViewController.m */,
 			);
 			path = "SampleDemo-xia";
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			files = (
 				C3E016F924D9C0D800CED87B /* ViewController.m in Sources */,
 				C38A285324E6E8E000457644 /* GTVideoViewController.m in Sources */,
+				C3553F7624E8668A00FF7BF6 /* GTRecommendViewController.m in Sources */,
 				C3E016F324D9C0D800CED87B /* AppDelegate.m in Sources */,
 				C3E0170424D9C0DA00CED87B /* main.m in Sources */,
 				C3E016F624D9C0D800CED87B /* SceneDelegate.m in Sources */,
