@@ -17,6 +17,12 @@
 @property(nonatomic, strong, readwrite) UILabel *commentLabel;
 @property(nonatomic, strong, readwrite) UILabel *timeLabel;
 
+// 创建自定义的image
+@property(nonatomic, strong, readwrite) UIImageView *rightimageView;
+
+// 创建UIButton
+@property(nonatomic, strong, readwrite) UIButton *deleteButton;
+
 @end
 
 @implementation GTNormalTableViewCell
@@ -60,6 +66,26 @@
             self.timeLabel.textColor = [UIColor grayColor];
             self.timeLabel;
         })];
+        
+        // 自定义的ImageView
+        [self.contentView addSubview:({
+            // 设置具体的大小
+            self.rightimageView = [[UIImageView alloc] initWithFrame:CGRectMake(330, 15, 70, 70 )];
+            self.rightimageView.backgroundColor = [UIColor redColor];
+            // `UIViewContentModeScaleAspectFit` 把整个图片按比例展示出来，图片不会变形
+            self.rightimageView.contentMode = UIViewContentModeScaleAspectFit;
+            self.rightimageView;
+        })];
+        
+        // button
+        [self.contentView addSubview:({
+            // 设置具体的大小
+            self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(290, 80, 30, 20)];
+            [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];
+            [self.deleteButton setTitle:@"V" forState:UIControlStateHighlighted];
+            self.deleteButton.backgroundColor = [UIColor blueColor];
+            self.deleteButton;
+        })];
     }
     return self;
 }
@@ -83,6 +109,9 @@
     [self.timeLabel sizeToFit];
     
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
+    
+    // 添加自定义的图片
+    self.rightimageView.image = [UIImage imageNamed:@"icon.bundle/splash.png"];
 
 }
 
