@@ -83,6 +83,9 @@
             self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(290, 80, 30, 20)];
             [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];
             [self.deleteButton setTitle:@"V" forState:UIControlStateHighlighted];
+            // 加上点击的交互逻辑 `addTarget: self当前的自身触发`, `action： @selector创建一个方法`,`forControlEvents:UIControlEventTouchUpInside 事件`
+            // 当点击的时候，会调用 `deleteButtonClick`这个方法， 实现在deleteButtonClick里面
+            [self.deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchUpInside];
             self.deleteButton.backgroundColor = [UIColor blueColor];
             self.deleteButton;
         })];
@@ -112,7 +115,11 @@
     
     // 添加自定义的图片
     self.rightimageView.image = [UIImage imageNamed:@"icon.bundle/splash.png"];
+}
 
+// 这是点击时触发的方法, 在上面的action:@selector(deleteButtonClick)定义
+- (void) deleteButtonClick {
+    NSLog(@"deleteButtonClick");
 }
 
 @end
