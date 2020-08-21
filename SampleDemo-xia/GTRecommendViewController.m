@@ -9,7 +9,7 @@
 #import "GTRecommendViewController.h"
 
 // 需要在这里声明一下使用的delaget
-@interface GTRecommendViewController ()<UIScrollViewDelegate>
+@interface GTRecommendViewController ()<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @end
 
@@ -33,6 +33,8 @@
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     scrollView.backgroundColor = [UIColor lightGrayColor];
+    // 设置scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever。在开发过程中的frame布局的项目中，所有的scrollView也都建议设置这个属性。
+    scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     // `self.view.bounds.size.width * 5` 表示，有五个屏幕的大小
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * 5, self.view.bounds.size.height);
     
@@ -44,6 +46,18 @@
     for (int i = 0; i < 5; i++) {
         [scrollView addSubview:({
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(scrollView.bounds.size.width * i, 0, scrollView.bounds.size.width, scrollView.bounds.size.height)];
+            // 增加一个小view视图
+            [view addSubview:({
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
+                view.backgroundColor = [UIColor yellowColor];
+                // 实现自定义手势
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClick)];
+                tapGesture.delegate = self;
+                // 把tapGesture加到view当中，就能识别到手势了
+                [view addGestureRecognizer:tapGesture];
+                view;
+            })];
+            
             view.backgroundColor = [colorArray objectAtIndex:i];
             view;
         })];
@@ -85,6 +99,15 @@
 }
 
 
+// 实现自定义手势
+- (void) viewClick{
+    NSLog(@"viewClick");
+}
+
+// 实现自定义手势是否被识别，
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    return YES;
+}
 
 @end
 
