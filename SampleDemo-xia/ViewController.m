@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "GTNormalTableViewCell.h"
-
+#import "GTDetailViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -56,7 +56,8 @@
 
 // 点击cell触发的事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *controller = [[UIViewController alloc] init];
+    // `GTDetailViewController` 自定义webkit
+    GTDetailViewController *controller = [[GTDetailViewController alloc] init];
     controller.view.backgroundColor = [UIColor whiteColor];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:controller animated:YES];
