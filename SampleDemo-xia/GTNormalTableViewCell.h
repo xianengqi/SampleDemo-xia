@@ -10,7 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// 自己实现一个delegate
+@protocol GTNormalTableViewCellDelegate <NSObject>
+// 1. 当点击按钮的时候去触发这个Delegate
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeltetButton:(UIButton *)deleteButton;
+
+@end
+
 @interface GTNormalTableViewCell : UITableViewCell
+
+// 2. 设置属性
+@property(nonatomic, weak, readwrite) id<GTNormalTableViewCellDelegate> delegate;
 
 // 暴露这个方法
 - (void)layoutTableViewCell;

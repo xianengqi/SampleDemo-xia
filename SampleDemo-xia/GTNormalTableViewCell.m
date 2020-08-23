@@ -119,7 +119,12 @@
 
 // 这是点击时触发的方法, 在上面的action:@selector(deleteButtonClick)定义
 - (void) deleteButtonClick {
-    NSLog(@"deleteButtonClick");
+    // 当点击取消按钮的时候,来判断一下有没有delegate
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableViewCell:clickDeltetButton:)]) {
+        [self.delegate tableViewCell:self clickDeltetButton:self.deleteButton];
+    }
+    
 }
 
 @end

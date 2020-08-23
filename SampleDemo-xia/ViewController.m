@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
+#import "GTDeleteCellView.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
-
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
+@property(nonatomic, strong, readwrite) UITableView *tableView;
+@property(nonatomic, strong, readwrite) NSMutableArray *dataArray;
 @end
 
 @implementation ViewController
@@ -19,7 +21,10 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        
+        _dataArray = @[].mutableCopy;
+        for (int i = 0; i < 20; i++) {
+            [_dataArray addObject:@(i)];
+        }
     }
     return self;
 }
@@ -31,10 +36,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame: self.view.bounds];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    [self.view addSubview:tableView];
+    _tableView = [[UITableView alloc] initWithFrame: self.view.bounds];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:_tableView];
     
 //    TestView *view = [[TestView alloc] init];
 //    view.backgroundColor = [UIColor redColor];
@@ -65,7 +70,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return _dataArray.count;
 }
 
 
@@ -75,12 +80,30 @@
     GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     if (!cell) {
       cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    // 设置cell的delegate,实现点击删除按钮的触发事件
+        cell.delegate = self;
     }
     
     // 在每次TableView需要布局的时候，我们去调用一下。
     [cell layoutTableViewCell];
     
     return cell;
+}
+
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeltetButton:(UIButton *)deleteButton{
+    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
+    
+    // 需要转换cell的坐标系到window中
+    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+    
+    // 处理一下循环引用
+    __weak typeof (self) wself = self;
+    
+    [deleteView showDeleteViewFromPoint:rect.origin clickBolck:^{
+        __strong typeof (self)strongSelf = wself;
+        [strongSelf.dataArray removeLastObject];
+        [strongSelf.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
 }
 
 
