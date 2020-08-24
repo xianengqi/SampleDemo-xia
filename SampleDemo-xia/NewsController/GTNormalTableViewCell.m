@@ -86,7 +86,13 @@
             // 加上点击的交互逻辑 `addTarget: self当前的自身触发`, `action： @selector创建一个方法`,`forControlEvents:UIControlEventTouchUpInside 事件`
             // 当点击的时候，会调用 `deleteButtonClick`这个方法， 实现在deleteButtonClick里面
             [self.deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchUpInside];
-            self.deleteButton.backgroundColor = [UIColor blueColor];
+//            self.deleteButton.backgroundColor = [UIColor blueColor];
+            // 设置button的样式为圆角`self.deleteButton.layer.cornerRadius`
+            self.deleteButton.layer.cornerRadius = 10;
+            self.deleteButton.layer.masksToBounds = YES;
+            // 给按钮加上一个边框
+            self.deleteButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            self.deleteButton.layer.borderWidth = 2;
             self.deleteButton;
         })];
     }
