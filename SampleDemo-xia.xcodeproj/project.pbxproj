@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F72AAB730C10CF329F69B59 /* libPods-SampleDemo-xia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A96D447667FE64344A6D68D6 /* libPods-SampleDemo-xia.a */; };
 		C3459CCD24F1853B00F54D1F /* GTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3459CCC24F1853B00F54D1F /* GTDetailViewController.m */; };
 		C34C1E2C24F2DC0A007F0F4A /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34C1E2B24F2DC0A007F0F4A /* GTDeleteCellView.m */; };
 		C34E16AA24F55F98006B6601 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E16A924F55F98006B6601 /* GTListLoader.m */; };
@@ -24,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04126ED13E26F02797DCE108 /* Pods-SampleDemo-xia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleDemo-xia.debug.xcconfig"; path = "Target Support Files/Pods-SampleDemo-xia/Pods-SampleDemo-xia.debug.xcconfig"; sourceTree = "<group>"; };
+		A96D447667FE64344A6D68D6 /* libPods-SampleDemo-xia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleDemo-xia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9DEA49728BCD91C1818C70 /* Pods-SampleDemo-xia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleDemo-xia.release.xcconfig"; path = "Target Support Files/Pods-SampleDemo-xia/Pods-SampleDemo-xia.release.xcconfig"; sourceTree = "<group>"; };
 		C3459CCB24F1853B00F54D1F /* GTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDetailViewController.h; sourceTree = "<group>"; };
 		C3459CCC24F1853B00F54D1F /* GTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDetailViewController.m; sourceTree = "<group>"; };
 		C34C1E2A24F2DC0A007F0F4A /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
@@ -56,12 +60,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F72AAB730C10CF329F69B59 /* libPods-SampleDemo-xia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75C90523B6992948EFF3C0BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A96D447667FE64344A6D68D6 /* libPods-SampleDemo-xia.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C34D0A6E24F4290600F5FDEC /* NewsController */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +120,8 @@
 			children = (
 				C3E016F024D9C0D800CED87B /* SampleDemo-xia */,
 				C3E016EF24D9C0D800CED87B /* Products */,
+				FF2A75C7710E187C56CE1AB9 /* Pods */,
+				75C90523B6992948EFF3C0BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +156,16 @@
 			path = "SampleDemo-xia";
 			sourceTree = "<group>";
 		};
+		FF2A75C7710E187C56CE1AB9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04126ED13E26F02797DCE108 /* Pods-SampleDemo-xia.debug.xcconfig */,
+				AC9DEA49728BCD91C1818C70 /* Pods-SampleDemo-xia.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +173,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3E0170724D9C0DA00CED87B /* Build configuration list for PBXNativeTarget "SampleDemo-xia" */;
 			buildPhases = (
+				9B5A28D42DEC707CF4BB5D9E /* [CP] Check Pods Manifest.lock */,
 				C3E016EA24D9C0D800CED87B /* Sources */,
 				C3E016EB24D9C0D800CED87B /* Frameworks */,
 				C3E016EC24D9C0D800CED87B /* Resources */,
@@ -206,6 +232,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B5A28D42DEC707CF4BB5D9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SampleDemo-xia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C3E016EA24D9C0D800CED87B /* Sources */ = {
@@ -359,6 +410,7 @@
 		};
 		C3E0170824D9C0DA00CED87B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04126ED13E26F02797DCE108 /* Pods-SampleDemo-xia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -375,6 +427,7 @@
 		};
 		C3E0170924D9C0DA00CED87B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC9DEA49728BCD91C1818C70 /* Pods-SampleDemo-xia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
