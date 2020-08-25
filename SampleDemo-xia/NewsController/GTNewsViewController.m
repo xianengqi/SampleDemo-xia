@@ -10,10 +10,12 @@
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
+#import "GTListLoader.h"
 
 @interface GTNewsViewController () <UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
 @property (nonatomic, strong, readwrite) NSMutableArray *dataArray;
+@property (nonatomic, strong, readwrite) GTListLoader *listLoader;
 @end
 
 @implementation GTNewsViewController
@@ -40,6 +42,10 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
+    
+    // 初始化loading..
+    self.listLoader = [[GTListLoader alloc] init];
+    [self.listLoader loadListData];
 
 //    TestView *view = [[TestView alloc] init];
 //    view.backgroundColor = [UIColor redColor];
