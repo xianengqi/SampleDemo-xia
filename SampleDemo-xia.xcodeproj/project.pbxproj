@@ -13,6 +13,7 @@
 		C34E16AA24F55F98006B6601 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E16A924F55F98006B6601 /* GTListLoader.m */; };
 		C35526F924ED830C0096045F /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C35526F824ED830C0096045F /* GTNormalTableViewCell.m */; };
 		C3553F7624E8668A00FF7BF6 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3553F7524E8668A00FF7BF6 /* GTRecommendViewController.m */; };
+		C363AFC024F584440097E68D /* GTListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C363AFBF24F584440097E68D /* GTListItem.m */; };
 		C38A285324E6E8E000457644 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38A285224E6E8E000457644 /* GTVideoViewController.m */; };
 		C3E016F324D9C0D800CED87B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E016F224D9C0D800CED87B /* AppDelegate.m */; };
 		C3E016F624D9C0D800CED87B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E016F524D9C0D800CED87B /* SceneDelegate.m */; };
@@ -38,6 +39,8 @@
 		C35526F824ED830C0096045F /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 		C3553F7424E8668A00FF7BF6 /* GTRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendViewController.h; sourceTree = "<group>"; };
 		C3553F7524E8668A00FF7BF6 /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
+		C363AFBE24F584440097E68D /* GTListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListItem.h; sourceTree = "<group>"; };
+		C363AFBF24F584440097E68D /* GTListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListItem.m; sourceTree = "<group>"; };
 		C38A285124E6E8E000457644 /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
 		C38A285224E6E8E000457644 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 		C3E016EE24D9C0D800CED87B /* SampleDemo-xia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleDemo-xia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,14 +81,10 @@
 		C34D0A6E24F4290600F5FDEC /* NewsController */ = {
 			isa = PBXGroup;
 			children = (
-				C34D0A7024F4297F00F5FDEC /* List */,
+				C363AFBD24F583D10097E68D /* View */,
+				C363AFBC24F583830097E68D /* Model */,
+				C34D0A7024F4297F00F5FDEC /* Controller */,
 				C34D0A6F24F4297100F5FDEC /* detail */,
-				C3E016F724D9C0D800CED87B /* GTNewsViewController.h */,
-				C3E016F824D9C0D800CED87B /* GTNewsViewController.m */,
-				C35526F724ED830C0096045F /* GTNormalTableViewCell.h */,
-				C35526F824ED830C0096045F /* GTNormalTableViewCell.m */,
-				C34C1E2A24F2DC0A007F0F4A /* GTDeleteCellView.h */,
-				C34C1E2B24F2DC0A007F0F4A /* GTDeleteCellView.m */,
 			);
 			path = NewsController;
 			sourceTree = "<group>";
@@ -99,20 +98,35 @@
 			path = detail;
 			sourceTree = "<group>";
 		};
-		C34D0A7024F4297F00F5FDEC /* List */ = {
+		C34D0A7024F4297F00F5FDEC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C3E016F724D9C0D800CED87B /* GTNewsViewController.h */,
+				C3E016F824D9C0D800CED87B /* GTNewsViewController.m */,
 			);
-			path = List;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		C34E16AB24F55FB5006B6601 /* loader */ = {
+		C363AFBC24F583830097E68D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				C34E16A824F55F98006B6601 /* GTListLoader.h */,
 				C34E16A924F55F98006B6601 /* GTListLoader.m */,
+				C363AFBE24F584440097E68D /* GTListItem.h */,
+				C363AFBF24F584440097E68D /* GTListItem.m */,
 			);
-			path = loader;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C363AFBD24F583D10097E68D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C35526F724ED830C0096045F /* GTNormalTableViewCell.h */,
+				C35526F824ED830C0096045F /* GTNormalTableViewCell.m */,
+				C34C1E2A24F2DC0A007F0F4A /* GTDeleteCellView.h */,
+				C34C1E2B24F2DC0A007F0F4A /* GTDeleteCellView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C3E016E524D9C0D700CED87B = {
@@ -136,7 +150,6 @@
 		C3E016F024D9C0D800CED87B /* SampleDemo-xia */ = {
 			isa = PBXGroup;
 			children = (
-				C34E16AB24F55FB5006B6601 /* loader */,
 				C34D0A6E24F4290600F5FDEC /* NewsController */,
 				C3E0170C24D9CDAF00CED87B /* icon.bundle */,
 				C3E016F124D9C0D800CED87B /* AppDelegate.h */,
@@ -162,7 +175,6 @@
 				04126ED13E26F02797DCE108 /* Pods-SampleDemo-xia.debug.xcconfig */,
 				AC9DEA49728BCD91C1818C70 /* Pods-SampleDemo-xia.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -269,6 +281,7 @@
 				C3E016F924D9C0D800CED87B /* GTNewsViewController.m in Sources */,
 				C38A285324E6E8E000457644 /* GTVideoViewController.m in Sources */,
 				C34E16AA24F55F98006B6601 /* GTListLoader.m in Sources */,
+				C363AFC024F584440097E68D /* GTListItem.m in Sources */,
 				C3553F7624E8668A00FF7BF6 /* GTRecommendViewController.m in Sources */,
 				C3E016F324D9C0D800CED87B /* AppDelegate.m in Sources */,
 				C3E0170424D9C0DA00CED87B /* main.m in Sources */,
