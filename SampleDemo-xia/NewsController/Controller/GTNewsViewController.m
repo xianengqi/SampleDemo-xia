@@ -11,10 +11,11 @@
 #import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
 #import "GTListLoader.h"
+#import "GTListItem.h"
 
 @interface GTNewsViewController () <UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
-@property (nonatomic, strong, readwrite) NSMutableArray *dataArray;
+@property (nonatomic, strong, readwrite) NSArray *dataArray; // NSArray是不可变的数组
 @property (nonatomic, strong, readwrite) GTListLoader *listLoader;
 @end
 
@@ -25,10 +26,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _dataArray = @[].mutableCopy;
-        for (int i = 0; i < 20; i++) {
-            [_dataArray addObject:@(i)];
-        }
     }
     return self;
 }
@@ -45,7 +42,16 @@
     
     // 初始化loading..
     self.listLoader = [[GTListLoader alloc] init];
-    [self.listLoader loadListData];
+    // 处理一下循环引用
+    __weak typeof (self) wself = self;
+
+    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<GTListItem *> * _Nonnull dataArray) {
+        __strong typeof(wself) strongSelf = wself;
+        // 1.副值给dataArray
+        strongSelf.dataArray = dataArray;
+        // 2. 刷新当前的列表
+        [strongSelf.tableView reloadData];
+    }];
 
 //    TestView *view = [[TestView alloc] init];
 //    view.backgroundColor = [UIColor redColor];
@@ -68,8 +74,9 @@
 
 // 点击cell触发的事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
     // `GTDetailViewController` 自定义webkit
-    GTDetailViewController *controller = [[GTDetailViewController alloc] init];
+    GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString:item.articleUrl];
     controller.view.backgroundColor = [UIColor whiteColor];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:controller animated:YES];
@@ -87,27 +94,26 @@
         // 设置cell的delegate,实现点击删除按钮的触发事件
         cell.delegate = self;
     }
-
+    
     // 在每次TableView需要布局的时候，我们去调用一下。
-    [cell layoutTableViewCell];
+    [cell layoutTableViewCellWithItem:[self.dataArray objectAtIndex:indexPath.row]];
 
     return cell;
 }
 
 - (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeltetButton:(UIButton *)deleteButton {
-    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
-
-    // 需要转换cell的坐标系到window中
-    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
-
-    // 处理一下循环引用
-    __weak typeof (self) wself = self;
-
-    [deleteView showDeleteViewFromPoint:rect.origin clickBolck:^{
-        __strong typeof (self) strongSelf = wself;
-        [strongSelf.dataArray removeLastObject];
-        [strongSelf.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }];
+//    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
+//
+//    // 需要转换cell的坐标系到window中
+//    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+//
+//    // 处理一下循环引用
+//    __weak typeof (self) wself = self;
+//
+//    [deleteView showDeleteViewFromPoint:rect.origin clickBolck:^{
+//        __strong typeof (wself) strongSelf = wself;
+//        [strongSelf.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    }];
 }
 
 @end

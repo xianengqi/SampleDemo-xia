@@ -18,7 +18,7 @@
     self.picUrl = [dictionary objectForKey:@"thumbnail_pic_s"];
     self.uniquekey = [dictionary objectForKey:@"uniquekey"];
     self.title = [dictionary objectForKey:@"title"];
-    self.data = [dictionary objectForKey:@"date"];
+    self.date = [dictionary objectForKey:@"date"];
     self.authorName = [dictionary objectForKey:@"author_name"];
     self.picUrl03 = [dictionary objectForKey:@"thumbnail_pic_s03"];
     self.picUrl02 = [dictionary objectForKey:@"thumbnail_pic_s02"];
