@@ -129,10 +129,17 @@
 
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
 
-#warning
-    // 加载图片
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
-    self.rightimageView.image = image;
+    // 2. 改成多线程提高流畅度, 这是创建的一个自定义的线程
+    NSThread *downloadImageThread = [[NSThread alloc] initWithBlock:^{
+        // 1.加载图片,耗时较高，有明显的卡顿现象，将高耗时的代码放在了NSthread里面了，就可以解决高耗时的问题.
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+        self.rightimageView.image = image;
+    }];
+    // 3. 设置一个名字
+    downloadImageThread.name = @"downloadImageThread";
+    // 4.执行这个线程
+    [downloadImageThread start];
+   
     // 添加自定义的图片
 //    self.rightimageView.image = [UIImage imageNamed:@"icon.bundle/splash.png"];
 }

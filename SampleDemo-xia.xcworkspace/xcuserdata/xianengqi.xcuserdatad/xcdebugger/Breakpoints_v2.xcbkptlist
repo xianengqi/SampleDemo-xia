@@ -23,16 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2D885C85-790B-4516-BDF8-661C56098170"
+            uuid = "0CBCFD3C-367A-4EDA-BD9D-F263DE0C1065"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SampleDemo-xia/NewsController/Model/GTListLoader.m"
+            filePath = "SampleDemo-xia/NewsController/View/GTNormalTableViewCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "-loadListDataWithFinishBlock:"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "-layoutTableViewCellWithItem:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
