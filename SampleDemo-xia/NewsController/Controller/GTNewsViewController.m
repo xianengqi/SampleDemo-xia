@@ -80,6 +80,10 @@
     controller.view.backgroundColor = [UIColor whiteColor];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:controller animated:YES];
+    // 处理一下已读的状态
+    // 当点击的时候
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniquekey];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -23,32 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "72CB9788-7CD3-4AE9-AB47-62464EBB1108"
+            uuid = "2D885C85-790B-4516-BDF8-661C56098170"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleDemo-xia/NewsController/Model/GTListLoader.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "-_archiveListDataWithArray:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E00A3CB3-86DC-4624-BE37-7E06C5605E8D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SampleDemo-xia/NewsController/Model/GTListLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-_archiveListDataWithArray:"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-loadListDataWithFinishBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

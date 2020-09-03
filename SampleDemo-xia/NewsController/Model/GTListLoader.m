@@ -23,6 +23,13 @@
 //    }];
 
 //    __unused NSURLRequest *listRequest = [NSURLRequest requestWithURL:listURL];
+    
+    //  请求的头部，需要读取一下
+    NSArray<GTListItem *> *listdata = [self _readDataFromLocal];
+    if (listdata) {
+        // 当读取到上回的数据之后，来展示这个列表,同时去拉取最新的数据` NSString *urlString = @"http://v.juhe.cn/toutiao/index?type=top&key=97ad001bfcc2082e2eeaf798bad3d54e";`
+         finishBlock(YES, listdata);
+    }
 
     // 自己用系统内部的方法封装的网络请求
     NSString *urlString = @"http://v.juhe.cn/toutiao/index?type=top&key=97ad001bfcc2082e2eeaf798bad3d54e";
@@ -75,6 +82,27 @@
     [dataTask resume];
 }
 
+#pragma mark - private method
+
+- (NSArray<GTListItem *> *)_readDataFromLocal{
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    // 地址是文件的第一位
+    NSString *cachePath = [pathArray firstObject];
+    NSString *listDataPath = [cachePath stringByAppendingPathComponent:@"GTData/list"];
+    // 创建一个Filemanager(文件管理)
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+//         读取文件实现反序列化 ,将二进制文件从listDataPath读取出来
+        NSData *readListData = [fileManager contentsAtPath:listDataPath];
+
+//         实现二进制文件反序列化
+        id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:readListData error:nil];
+    
+    if ([unarchiveObj isKindOfClass:[NSArray class]] && [unarchiveObj count] > 0) {
+        return (NSArray<GTListItem *> *)unarchiveObj;
+    }
+    return nil;
+}
+
 // 获取ios沙盒地址
 // 建立一个获取沙盒地址的函数
 - (void)_archiveListDataWithArray:(NSArray<GTListItem *> *)array {
@@ -103,10 +131,17 @@
     [fileManager createFileAtPath:listDataPath contents:listData attributes:nil];
     
     // 读取文件实现反序列化 ,将二进制文件从listDataPath读取出来
-    NSData *readListData = [fileManager contentsAtPath:listDataPath];
+//    NSData *readListData = [fileManager contentsAtPath:listDataPath];
     
     // 实现二进制文件反序列化
-    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:readListData error:nil];
+//    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:readListData error:nil];
+    
+    // 找到单例`NSUserDefaults`,可以理解为是一个数据库，保存用户的一些偏好
+    // 存值
+//    [[NSUserDefaults standardUserDefaults] setObject:listData forKey:@"listData"];
+//    // 取值
+//    NSData *testListData = [[NSUserDefaults standardUserDefaults] dataForKey:@"listData"];
+//    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:testListData error:nil];
 
     // 查询文件
 //    BOOL fileExist = [fileManager fileExistsAtPath:listDataPath];
@@ -116,7 +151,7 @@
 //        [fileManager removeItemAtPath:listDataPath error:nil];
 //    }
 
-    NSLog(@"");
+
 
 //    // 向`listData`中增加数据, 需要用到FileHandle
 //    NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:listDataPath];
