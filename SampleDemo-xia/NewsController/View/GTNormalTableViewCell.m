@@ -8,6 +8,7 @@
 
 #import "GTNormalTableViewCell.h"
 #import "GTListItem.h"
+#import "SDWebImage.h"
 
 // 创建自己的UILabel 进行复杂布局
 @interface GTNormalTableViewCell ()
@@ -144,18 +145,29 @@
     /// 使用GCD从新实现一下上面的业务逻辑
     // 1. 取系统提供的非主线程,系统提供的默认优先级`DISPATCH_QUEUE_PRIORITY_DEFAULT`
     // 非主队列
-    dispatch_queue_global_t downloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    // 2. 获取主队列
-    dispatch_queue_main_t mainQueue = dispatch_get_main_queue();
-    // 3, 获取到队列后，执行业务逻辑
-    dispatch_async(downloadQueue, ^{
-        // 在非主队列当中执行高耗时的操作
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
-        // 在主队列当中执行UI操作
-        dispatch_async(mainQueue, ^{
-            self.rightimageView.image = image;
-        });
-    });
+//    dispatch_queue_global_t downloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    // 2. 获取主队列
+//    dispatch_queue_main_t mainQueue = dispatch_get_main_queue();
+//    // 3, 获取到队列后，执行业务逻辑
+//    dispatch_async(downloadQueue, ^{
+//        // 在非主队列当中执行高耗时的操作
+//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+//        // 在主队列当中执行UI操作
+//        dispatch_async(mainQueue, ^{
+//            self.rightimageView.image = image;
+//        });
+//    });
+//
+    /**
+        使用第三方开源的库，来进行图片的存储到内存或磁盘中
+     第一步会先去内存中存储，如果内存中没有就会去磁盘中存储
+     优化GCD, 占位图
+     */
+    // 1. 首先加载url
+    [self.rightimageView sd_setImageWithURL:[NSURL URLWithString:item.picUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        NSLog(@"");
+    }];
+ 
     
     // 添加自定义的图片
 //    self.rightimageView.image = [UIImage imageNamed:@"icon.bundle/splash.png"];
