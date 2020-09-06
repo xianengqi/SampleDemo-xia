@@ -7,6 +7,8 @@
 //
 
 #import "GTVideoCoverView.h"
+// 引入AVFoundation.h ，用来展示视频
+#import <AVFoundation/AVFoundation.h>
 
 @interface GTVideoCoverView()
 
@@ -29,7 +31,7 @@
             _coverView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
             _coverView;
         })];
-        [self addSubview:({
+        [_coverView addSubview:({
             // 创建播放按钮
             // 播放按钮居中显示
             _playButton = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width -50) / 2, (frame.size.height -50) / 2, 50, 50)];
@@ -54,6 +56,17 @@
 #pragma mark - private method
 // 预留一个函数，来响应点击
 - (void) _tapToPlay {
+    NSURL *videoURL = [NSURL URLWithString:_videoUrl];
+    AVAsset *asset = [AVAsset assetWithURL:videoURL];
+    AVPlayerItem *videoItem = [AVPlayerItem playerItemWithAsset:asset];
+    AVPlayer *avPlayer = [AVPlayer playerWithPlayerItem:videoItem];
+    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer];
+    // 调整大小
+    playerLayer.frame = _coverView.bounds;
+    // 然后将它粘贴到_coverView上
+    [_coverView.layer addSublayer:playerLayer];
+    // 最后呢调用一下播放
+    [avPlayer play];
     NSLog(@"");
 }
 

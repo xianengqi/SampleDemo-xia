@@ -10,6 +10,7 @@
 // 替换系统提供的UIControllerView
 #import "GTVideoCoverView.h"
 
+
 @interface GTVideoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
