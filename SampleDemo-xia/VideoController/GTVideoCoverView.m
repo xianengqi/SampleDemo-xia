@@ -57,6 +57,7 @@
 - (void) dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_videoItem removeObserver:self forKeyPath:@"status"];
+    [_videoItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
 }
 
 #pragma mark - public method
@@ -75,8 +76,20 @@
     _videoItem = [AVPlayerItem playerItemWithAsset:asset];
     // 使用kvo监听状态
     [_videoItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+    // 缓冲状态
+    [_videoItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    
+    // 获取视频相关的时长
+    CMTime duration = _videoItem.duration;
+    // 转换成方便理解的时长
+    CGFloat videoDuration = CMTimeGetSeconds(duration);
     
     _avPlayer = [AVPlayer playerWithPlayerItem:_videoItem];
+    // 播放状态获取
+    [_avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        NSLog(@"播放进度: %@", @(CMTimeGetSeconds(time)));
+    }];
+    
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_avPlayer];
     // 调整大小
     _playerLayer.frame = _coverView.bounds;
@@ -88,11 +101,15 @@
 }
 
 - (void) _handlePlayEnd {
-    // 播放结束时，移除掉
-    [_playerLayer removeFromSuperlayer];
-    // 销毁整个的播放器
-    _videoItem = nil;
-    _avPlayer = nil;
+//    // 播放结束时，移除掉
+//    [_playerLayer removeFromSuperlayer];
+//    // 销毁整个的播放器
+//    _videoItem = nil;
+//    _avPlayer = nil;
+    
+    // 视频播放结束后重复播放的操作
+    [_avPlayer seekToTime:CMTimeMake(0, 1)];
+    [_avPlayer play];
 }
 
 #pragma mark - KVO
@@ -107,6 +124,8 @@
         } else {
             NSLog(@"");
         }
+    } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {  // 如果有缓冲，就展示下面的逻辑
+        NSLog(@"缓冲：%@", [change objectForKey:NSKeyValueChangeNewKey]);
     }
 }
 
