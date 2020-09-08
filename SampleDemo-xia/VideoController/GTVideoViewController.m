@@ -9,6 +9,7 @@
 #import "GTVideoViewController.h"
 // 替换系统提供的UIControllerView
 #import "GTVideoCoverView.h"
+#import "GTVideoToolBar.h"
 
 
 @interface GTVideoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -39,7 +40,7 @@
     flowLayout.minimumInteritemSpacing = 10;
     // 整个屏幕的宽度减去中间预留的10
 //    flowLayout.itemSize = CGSizeMake((self.view.frame.size.width - 10)/2, 300);
-    flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width / 16 * 9);
+    flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width / 16 * 9 + GTVideoToolBarHeight);
     
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];

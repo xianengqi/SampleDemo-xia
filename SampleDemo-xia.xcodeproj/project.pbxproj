@@ -12,6 +12,7 @@
 		C3459CCD24F1853B00F54D1F /* GTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3459CCC24F1853B00F54D1F /* GTDetailViewController.m */; };
 		C34C1E2C24F2DC0A007F0F4A /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34C1E2B24F2DC0A007F0F4A /* GTDeleteCellView.m */; };
 		C34DD80C2504997300788A53 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34DD80B2504997300788A53 /* GTVideoCoverView.m */; };
+		C34E06B02507D45F001C5B03 /* GTVideoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E06AF2507D45F001C5B03 /* GTVideoToolBar.m */; };
 		C34E16AA24F55F98006B6601 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E16A924F55F98006B6601 /* GTListLoader.m */; };
 		C35526F924ED830C0096045F /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C35526F824ED830C0096045F /* GTNormalTableViewCell.m */; };
 		C3553F7624E8668A00FF7BF6 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3553F7524E8668A00FF7BF6 /* GTRecommendViewController.m */; };
@@ -39,6 +40,8 @@
 		C34C1E2B24F2DC0A007F0F4A /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
 		C34DD80A2504997300788A53 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
 		C34DD80B2504997300788A53 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
+		C34E06AE2507D45F001C5B03 /* GTVideoToolBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoToolBar.h; sourceTree = "<group>"; };
+		C34E06AF2507D45F001C5B03 /* GTVideoToolBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoToolBar.m; sourceTree = "<group>"; };
 		C34E16A824F55F98006B6601 /* GTListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListLoader.h; sourceTree = "<group>"; };
 		C34E16A924F55F98006B6601 /* GTListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListLoader.m; sourceTree = "<group>"; };
 		C35526F724ED830C0096045F /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				C34DD80B2504997300788A53 /* GTVideoCoverView.m */,
 				C342062E250618EC0024CADD /* GTVideoPlayer.h */,
 				C342062F250618EC0024CADD /* GTVideoPlayer.m */,
+				C34E06AE2507D45F001C5B03 /* GTVideoToolBar.h */,
+				C34E06AF2507D45F001C5B03 /* GTVideoToolBar.m */,
 			);
 			path = VideoController;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			files = (
 				C3459CCD24F1853B00F54D1F /* GTDetailViewController.m in Sources */,
 				C34DD80C2504997300788A53 /* GTVideoCoverView.m in Sources */,
+				C34E06B02507D45F001C5B03 /* GTVideoToolBar.m in Sources */,
 				C34C1E2C24F2DC0A007F0F4A /* GTDeleteCellView.m in Sources */,
 				C35526F924ED830C0096045F /* GTNormalTableViewCell.m in Sources */,
 				C3E016F924D9C0D800CED87B /* GTNewsViewController.m in Sources */,
