@@ -24,6 +24,19 @@ NS_ASSUME_NONNULL_BEGIN
 #define UI(x) UIAdapter(x)
 #define UIRect(x, y, width, height) UIRectAdapter(x, y, width, height)
 
+// 判断三种机型
+#define IS_IPHONE_X_XR_MAX (IS_IPHONE_X || IS_IPHONE_XR || IS_IPHONE_XMAX)
+// 定义是否是iphone x
+#define IS_IPHONE_X (SCREEN_WIDTH == [GTScreen sizeFor58Inch].width && SCREEN_HEIGHT == [GTScreen sizeFor58Inch].height)
+// 判断一下iphone xr的像素密度
+#define IS_IPHONE_XR (SCREEN_WIDTH == [GTScreen sizeFor61Inch].width && SCREEN_HEIGHT == [GTScreen sizeFor61Inch].height && [UIScreen mainScreen].scale == 2)
+// 判断一下iphone xmax的像素密度
+#define IS_IPHONE_XMAX (SCREEN_WIDTH == [GTScreen sizeFor65Inch].width && SCREEN_HEIGHT == [GTScreen sizeFor65Inch].height && [UIScreen mainScreen].scale == 3)
+
+// 定义一个statusbar的height, 如果是流海屏，就返回44
+#define STATUSBARHEIGHT (IS_IPHONE_X_XR_MAX ? 44 : 20 )
+
+
 // 写一个内联函数作为宏，来按照屏幕尺寸扩大和缩小
 static inline NSInteger UIAdapter(float x)
 {
@@ -40,6 +53,13 @@ static inline CGRect UIRectAdapter(x, y, width, height)
 }
 
 @interface GTScreen : NSObject
+
+// iphone xs max
++ (CGSize) sizeFor65Inch;
+// iphone xr
++ (CGSize) sizeFor61Inch;
+// iphone x
++ (CGSize) sizeFor58Inch;
 
 @end
 

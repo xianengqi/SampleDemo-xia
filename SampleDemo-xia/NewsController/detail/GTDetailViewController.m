@@ -9,6 +9,7 @@
 #import "GTDetailViewController.h"
 // 引入webkit
 #import <WebKit/WebKit.h>
+#import "GTScreen.h"
 
 @interface GTDetailViewController () <WKNavigationDelegate>
 @property (nonatomic, strong, readwrite) WKWebView *webView;
@@ -38,14 +39,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:({
-        self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88)];
+        self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT + 44, self.view.frame.size.width, self.view.frame.size.height - STATUSBARHEIGHT - 44)];
         self.webView.navigationDelegate = self;
         self.webView;
     })];
 
     // 展示进度条样式
     [self.view addSubview:({
-        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 20)];
+        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT + 44, self.view.frame.size.width, 20)];
         self.progressView;
     })];
 
