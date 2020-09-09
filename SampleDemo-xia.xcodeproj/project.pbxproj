@@ -14,6 +14,7 @@
 		C34DD80C2504997300788A53 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34DD80B2504997300788A53 /* GTVideoCoverView.m */; };
 		C34E06B02507D45F001C5B03 /* GTVideoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E06AF2507D45F001C5B03 /* GTVideoToolBar.m */; };
 		C34E16AA24F55F98006B6601 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E16A924F55F98006B6601 /* GTListLoader.m */; };
+		C352FFFB25091ED5003A22DB /* GTScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C352FFFA25091ED5003A22DB /* GTScreen.m */; };
 		C35526F924ED830C0096045F /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C35526F824ED830C0096045F /* GTNormalTableViewCell.m */; };
 		C3553F7624E8668A00FF7BF6 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3553F7524E8668A00FF7BF6 /* GTRecommendViewController.m */; };
 		C363AFC024F584440097E68D /* GTListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C363AFBF24F584440097E68D /* GTListItem.m */; };
@@ -44,6 +45,8 @@
 		C34E06AF2507D45F001C5B03 /* GTVideoToolBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoToolBar.m; sourceTree = "<group>"; };
 		C34E16A824F55F98006B6601 /* GTListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListLoader.h; sourceTree = "<group>"; };
 		C34E16A924F55F98006B6601 /* GTListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListLoader.m; sourceTree = "<group>"; };
+		C352FFF925091ED5003A22DB /* GTScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTScreen.h; sourceTree = "<group>"; };
+		C352FFFA25091ED5003A22DB /* GTScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTScreen.m; sourceTree = "<group>"; };
 		C35526F724ED830C0096045F /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
 		C35526F824ED830C0096045F /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 		C3553F7424E8668A00FF7BF6 /* GTRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendViewController.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				C3E0170324D9C0DA00CED87B /* main.m */,
 				C3553F7424E8668A00FF7BF6 /* GTRecommendViewController.h */,
 				C3553F7524E8668A00FF7BF6 /* GTRecommendViewController.m */,
+				C352FFF925091ED5003A22DB /* GTScreen.h */,
+				C352FFFA25091ED5003A22DB /* GTScreen.m */,
 			);
 			path = "SampleDemo-xia";
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C352FFFB25091ED5003A22DB /* GTScreen.m in Sources */,
 				C3459CCD24F1853B00F54D1F /* GTDetailViewController.m in Sources */,
 				C34DD80C2504997300788A53 /* GTVideoCoverView.m in Sources */,
 				C34E06B02507D45F001C5B03 /* GTVideoToolBar.m in Sources */,

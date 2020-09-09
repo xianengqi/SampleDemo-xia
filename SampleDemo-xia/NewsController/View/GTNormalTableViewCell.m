@@ -9,6 +9,7 @@
 #import "GTNormalTableViewCell.h"
 #import "GTListItem.h"
 #import "SDWebImage.h"
+#import "GTScreen.h"
 
 // 创建自己的UILabel 进行复杂布局
 @interface GTNormalTableViewCell ()
@@ -35,7 +36,7 @@
         // 2. 把创建好的最基本的UILabel放在这里
         [self.contentView addSubview:({
             // 设置具体的大小
-            self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 270, 50)];
+            self.titleLabel = [[UILabel alloc] initWithFrame:UIRect(20, 15, 270, 50)];
             self.titleLabel.font = [UIFont systemFontOfSize:16];
             self.titleLabel.textColor = [UIColor blackColor];
             // 让标题支持两行
@@ -47,7 +48,7 @@
 
         [self.contentView addSubview:({
             // 设置具体的大小
-            self.sourceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 70, 50, 20)];
+            self.sourceLabel = [[UILabel alloc] initWithFrame:UIRect(20, 70, 50, 20)];
             self.sourceLabel.font = [UIFont systemFontOfSize:12];
             self.sourceLabel.textColor = [UIColor grayColor];
             self.sourceLabel;
@@ -55,7 +56,7 @@
 
         [self.contentView addSubview:({
             // 设置具体的大小
-            self.commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 70, 50, 20)];
+            self.commentLabel = [[UILabel alloc] initWithFrame:UIRect(100, 70, 50, 20)];
             self.commentLabel.font = [UIFont systemFontOfSize:12];
             self.commentLabel.textColor = [UIColor grayColor];
             self.commentLabel;
@@ -63,7 +64,7 @@
 
         [self.contentView addSubview:({
             // 设置具体的大小
-            self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 70, 50, 20)];
+            self.timeLabel = [[UILabel alloc] initWithFrame:UIRect(150, 70, 50, 20)];
             self.timeLabel.font = [UIFont systemFontOfSize:12];
             self.timeLabel.textColor = [UIColor grayColor];
             self.timeLabel;
@@ -72,7 +73,7 @@
         // 自定义的ImageView
         [self.contentView addSubview:({
             // 设置具体的大小
-            self.rightimageView = [[UIImageView alloc] initWithFrame:CGRectMake(300, 15, 100, 70)];
+            self.rightimageView = [[UIImageView alloc] initWithFrame:UIRect(300, 15, 100, 70)];
             // `UIViewContentModeScaleAspectFit` 把整个图片按比例展示出来，图片不会变形
             self.rightimageView.contentMode = UIViewContentModeScaleAspectFit;
             self.rightimageView;
@@ -122,13 +123,13 @@
     // `sizeToFit` 调整一下距离和大小, 返回自适应合适的大小
     [self.commentLabel sizeToFit];
     // 调整一下按钮之间的距离, 左边距设置为sourceLabel的右边距`self.sourceLabel.frame.origin.y` + self.sourceLabel.frame.size.width` 加上自身的宽度 再加上15的距离
-    self.commentLabel.frame = CGRectMake(self.sourceLabel.frame.origin.x + self.sourceLabel.frame.size.width + 15, self.commentLabel.frame.origin.y, self.commentLabel.frame.size.width, self.commentLabel.frame.size.height);
+    self.commentLabel.frame = CGRectMake(self.sourceLabel.frame.origin.x + self.sourceLabel.frame.size.width + UI(15), self.commentLabel.frame.origin.y, self.commentLabel.frame.size.width, self.commentLabel.frame.size.height);
 
     self.timeLabel.text = item.date;
     // `sizeToFit`调整一下距离和大小, 返回自适应合适的大小
     [self.timeLabel sizeToFit];
 
-    self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
+    self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + UI(15), self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
 
     // 2. 改成多线程提高流畅度, 这是创建的一个自定义的线程
 //    NSThread *downloadImageThread = [[NSThread alloc] initWithBlock:^{
