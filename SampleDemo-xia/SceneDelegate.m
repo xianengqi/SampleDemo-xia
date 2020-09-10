@@ -10,6 +10,7 @@
 #import "GTNewsViewController.h"
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
+#import "GTSplashView.h"
 
 @interface SceneDelegate ()
 
@@ -68,6 +69,14 @@
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
+    // 闪屏的逻辑
+    [self.window addSubview:({
+        GTSplashView *splashView = [[GTSplashView alloc] initWithFrame:self.window.bounds];
+        // 大小是整个window的大小
+        splashView;
+    })];
+
 }
 
 
