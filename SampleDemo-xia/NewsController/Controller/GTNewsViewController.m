@@ -78,10 +78,13 @@
    GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
     // `GTDetailViewController` 自定义webkit
     
-    __kindof UIViewController *detailController = [GTMediator detailViewControllerWithUrl:item.articleUrl];
-    detailController.view.backgroundColor = [UIColor whiteColor];
-    detailController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
-    [self.navigationController pushViewController:detailController animated:YES];
+//    __kindof UIViewController *detailController = [GTMediator detailViewControllerWithUrl:item.articleUrl];
+//    detailController.view.backgroundColor = [UIColor whiteColor];
+//    detailController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+//    [self.navigationController pushViewController:detailController animated:YES];
+    [GTMediator openUrl:@"detail://" params:@{@"url":item.articleUrl, @"controller":self.navigationController}];
+    
+   
     // 处理一下已读的状态
     // 当点击的时候
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniquekey];

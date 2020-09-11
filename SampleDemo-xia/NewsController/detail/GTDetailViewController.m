@@ -10,6 +10,7 @@
 // 引入webkit
 #import <WebKit/WebKit.h>
 #import "GTScreen.h"
+#import "GTMediator.h"
 
 @interface GTDetailViewController () <WKNavigationDelegate>
 @property (nonatomic, strong, readwrite) WKWebView *webView;
@@ -21,6 +22,17 @@
 @end
 
 @implementation GTDetailViewController
+
++ (void) load{
+    [GTMediator registerScheme:@"detail://" processBlock:^(NSDictionary * _Nonnull params) {
+        NSString *url = (NSString *)[params objectForKey:@"url"];
+        UINavigationController *navigationController = (UINavigationController *)[params objectForKey:@"controller"];
+        
+        GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString:url];
+//        controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+        [navigationController pushViewController:controller animated:YES];
+    }];
+}
 
 // 在监听者销毁的时候，移除
 - (void)dealloc {

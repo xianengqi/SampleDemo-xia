@@ -14,7 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 // 实现一个组件化
 @interface GTMediator : NSObject
 
+// target action
 + (__kindof UIViewController *)detailViewControllerWithUrl:(NSString *)detailUrl;
+
+// urlScheme
+typedef void(^GTMediatorProcessBlock)(NSDictionary *params);
++ (void)registerScheme:(NSString *)scheme processBlock:(GTMediatorProcessBlock)processBlock;
++ (void)openUrl:(NSString *)url params:(NSDictionary *)params;
 
 @end
 
