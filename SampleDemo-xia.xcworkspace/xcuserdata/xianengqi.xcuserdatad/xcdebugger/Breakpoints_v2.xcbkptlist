@@ -23,17 +23,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "27854932-D084-43D3-87E4-D0DFE0B49620"
+            uuid = "ACD75BAF-6477-48EF-86B2-8CD98DBA3F39"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleDemo-xia/SceneDelegate.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-scene:openURLContexts:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF0B223E-8663-4D2F-BC2B-BE8C1ADE3172"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleDemo-xia/GTRecommendViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-viewClick"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DF0B223E-8663-4D2F-BC2B-BE8C1ADE3172 - a28cb941d3ae1706"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GTRecommendViewController viewClick]"
+                  moduleName = "SampleDemo-xia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xianengqi/code/code/IOS-APP/SampleDemo-xia/SampleDemo-xia/GTRecommendViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "143">
+               </Location>
+               <Location
+                  uuid = "DF0B223E-8663-4D2F-BC2B-BE8C1ADE3172 - 19efddc331a52e89"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[GTRecommendViewController viewClick]_block_invoke"
+                  moduleName = "SampleDemo-xia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xianengqi/code/code/IOS-APP/SampleDemo-xia/SampleDemo-xia/GTRecommendViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

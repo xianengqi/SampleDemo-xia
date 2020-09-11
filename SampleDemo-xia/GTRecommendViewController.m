@@ -103,7 +103,13 @@
 
 // 实现自定义手势
 - (void) viewClick{
-    NSLog(@"viewClick");
+    // 判断是否拉起的app是否安装
+    NSURL *urlScheme = [NSURL URLWithString:@"testScheme://"];
+    BOOL canOpenURL = [[UIApplication sharedApplication] canOpenURL:urlScheme];
+    
+    [[UIApplication sharedApplication] openURL:urlScheme options:nil completionHandler:^(BOOL success) {
+        NSLog(@"");
+    }];
 }
 
 // 实现自定义手势是否被识别，

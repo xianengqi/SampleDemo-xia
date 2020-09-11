@@ -113,5 +113,10 @@
     // to restore the scene back to its current state.
 }
 
+#pragma mark -
+
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts{
+    NSLog(@"");
+}
 
 @end
