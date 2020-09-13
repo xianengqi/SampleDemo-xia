@@ -13,6 +13,7 @@
 #import "GTSplashView.h"
 #import "GTStaicTest.h"
 #import <GTFramework/GTFrameworkTest.h>
+#import "GTNotification.h"
 
 @interface SceneDelegate ()
 
@@ -84,6 +85,13 @@
     
     // 引入动态库
    // [[GTFrameworkTest alloc] init];
+    
+    // 注册一下，然后走下面的逻辑
+//    [self _caughtException];
+    // Crash
+//    [@[].mutableCopy addObject:nil];
+    
+    [[GTNotification notificationManager] checkNotificationAuthorization];
 
 }
 
@@ -125,6 +133,19 @@
 
 - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts{
     NSLog(@"");
+}
+
+#pragma mark - crash
+- (void) _caughtException{
+    NSSetUncaughtExceptionHandler(HandleNSException);
+}
+
+void HandleNSException(NSException *exception){
+    __unused NSString *reason = [exception reason];
+    __unused NSString *name = [exception name];
+    // 将收集到的系统crash信息进行存储， 用于系统日志上报
+    
+    
 }
 
 @end

@@ -16,6 +16,7 @@
 		C3470C1A250CFCD9004D64D9 /* libGTStaic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3470C18250CFCD9004D64D9 /* libGTStaic.a */; };
 		C3470C5D250D044F004D64D9 /* GTFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3470C34250D0185004D64D9 /* GTFramework.framework */; };
 		C3470C5E250D044F004D64D9 /* GTFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3470C34250D0185004D64D9 /* GTFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C34AE786250E6595009D2464 /* GTNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C34AE785250E6595009D2464 /* GTNotification.m */; };
 		C34C1E2C24F2DC0A007F0F4A /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34C1E2B24F2DC0A007F0F4A /* GTDeleteCellView.m */; };
 		C34DD80C2504997300788A53 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C34DD80B2504997300788A53 /* GTVideoCoverView.m */; };
 		C34E06B02507D45F001C5B03 /* GTVideoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C34E06AF2507D45F001C5B03 /* GTVideoToolBar.m */; };
@@ -70,6 +71,8 @@
 		C3470C4F250D0328004D64D9 /* e.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = e.h; sourceTree = "<group>"; };
 		C3470C50250D0328004D64D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3470C59250D0444004D64D9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		C34AE784250E6595009D2464 /* GTNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNotification.h; sourceTree = "<group>"; };
+		C34AE785250E6595009D2464 /* GTNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNotification.m; sourceTree = "<group>"; };
 		C34C1E2A24F2DC0A007F0F4A /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
 		C34C1E2B24F2DC0A007F0F4A /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
 		C34DD80A2504997300788A53 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 				C3426257250A735D0048CDE6 /* GTSplashView.m */,
 				C3437292250BBF8900CDE932 /* GTMediator.h */,
 				C3437293250BBF8900CDE932 /* GTMediator.m */,
+				C34AE784250E6595009D2464 /* GTNotification.h */,
+				C34AE785250E6595009D2464 /* GTNotification.m */,
 			);
 			path = "SampleDemo-xia";
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				C352FFFB25091ED5003A22DB /* GTScreen.m in Sources */,
 				C3459CCD24F1853B00F54D1F /* GTDetailViewController.m in Sources */,
 				C34DD80C2504997300788A53 /* GTVideoCoverView.m in Sources */,
+				C34AE786250E6595009D2464 /* GTNotification.m in Sources */,
 				C34E06B02507D45F001C5B03 /* GTVideoToolBar.m in Sources */,
 				C34C1E2C24F2DC0A007F0F4A /* GTDeleteCellView.m in Sources */,
 				C35526F924ED830C0096045F /* GTNormalTableViewCell.m in Sources */,
