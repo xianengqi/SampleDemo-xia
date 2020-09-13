@@ -14,23 +14,29 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - CocoaLumberjack (3.6.2):
+    - CocoaLumberjack/Core (= 3.6.2)
+  - CocoaLumberjack/Core (3.6.2)
   - SDWebImage (5.9.0):
     - SDWebImage/Core (= 5.9.0)
   - SDWebImage/Core (5.9.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - CocoaLumberjack
   - SDWebImage
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - CocoaLumberjack
     - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
   SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
 
-PODFILE CHECKSUM: 3b9a902545354f6ddb97f2a9ae5363f8e68d8124
+PODFILE CHECKSUM: 49d188f4497df496cbb6ce33725ab1a1d7dcbb16
 
 COCOAPODS: 1.9.3

@@ -11,6 +11,8 @@
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
 #import "GTSplashView.h"
+#import "GTStaicTest.h"
+#import <GTFramework/GTFrameworkTest.h>
 
 @interface SceneDelegate ()
 
@@ -76,6 +78,12 @@
         // 大小是整个window的大小
         splashView;
     })];
+    
+    // 引入静态库
+    //  [[GTStaicTest alloc] init];
+    
+    // 引入动态库
+   // [[GTFrameworkTest alloc] init];
 
 }
 
